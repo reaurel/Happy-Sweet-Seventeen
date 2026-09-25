@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>happy sweet seventeen sayangg 🎉</title>
-  
+  <title>Happy Birthday Sayangku 🎉</title>
+
   <!-- CDN Library Canvas Confetti untuk Animasi -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -15,7 +15,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* Background Gradient Nuansa Biru Pastel */
       background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
@@ -32,44 +31,42 @@
       position: relative;
       z-index: 10;
     }
-    h1 { 
-      color: #1e3c72; /* Warna Judul Biru Tua Maskulin */
+    h1 {
+      color: #1e3c72;
       margin-bottom: 15px;
-      font-size: 26px;
+      font-size: 24px;
     }
-    p { 
-      color: #4a5568; 
+    p {
+      color: #555;
       line-height: 1.6;
-      font-size: 16px;
     }
     button {
-      background: #2a5298; /* Tombol Biru */
+      background: #2b5091;
       color: white;
       border: none;
-      padding: 14px 28px;
+      padding: 12px 25px;
       border-radius: 25px;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 20px;
-      transition: transform 0.2s, background-color 0.2s;
-      box-shadow: 0 4px 15px rgba(42, 82, 152, 0.3);
+      margin-top: 15px;
+      transition: background 0.3s;
     }
-    button:hover { 
-      transform: scale(1.05);
+    button:hover {
       background: #1e3c72;
+    }
+    audio {
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 10px;
     }
     #pesan-rahasia {
       display: none;
       margin-top: 25px;
       padding-top: 20px;
-      border-top: 2px dashed #e2e8f0;
-      animation: fadeIn 1s ease-in-out;
-    }
-    #pesan-rahasia p {
-      color: #2d3748;
-      font-size: 15px;
+      border-top: 2px dashed #eef2f7;
       text-align: left;
+      animation: fadeIn 1s ease-in-out;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -82,17 +79,17 @@
   <div class="card">
     <h1>🎉 Happy Birthday Sayangku 🎉</h1>
     <p>happy birthday fatih azmi abdillah, happy sweet seventeen sayangg, i always pray the best for u, pls kedepannyaa harus tetep semangat yaa apapunn kondisi nya, i always here for u sayang 🤍</p>
-    
-    <!-- Elemen Audio Musik Latar -->
-    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
-  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/681765231&color=%23ff6699&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
-</iframe>
 
+    <!-- Elemen Audio Musik Latar -->
+    <audio id="lagu" loop controls style="margin-top: 15px; width: 100%;">
+      <source src="https://files.catbox.moe/2s8k6v.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung pemutar audio.
+    </audio>
 
     <button onclick="bukaPesan()">Buka Pesan Spesial & Musik 🎁</button>
-    
+
     <div id="pesan-rahasia">
-      <p>anak kecil sekarang udah 17 tahun yaa?? udahh besarr yaa skrg hahahha, ga kerasa yaa kita udah mau 3 tahun bareng and i still love u dan bakal gtu selamanya, makasii yaa sayangg udah bertahan sejauh ini, aku tau pasti ga gampang buat kamu tumbuh dengan kondisi yg sering bikin kamu cape, tpi kamuu hebatt sayang kamu keren, i'm so proud of u. aku berharap apapun yg kamu usahain dari dulu nanti nya membuahkan hasil yg sepadan, klo kamu cape jangan lupa istirahat yaa sayangg, maaffin aku klo aku masih sering bikin kamu cape dan sedih, pls sama aju teruss yaa?? i lovee uu gantengg happy birthday udah mau bikin ktp sm sim jadi rokok nya dikurangin yaa sayangg 🤍🎂</p>
+      <p>anak kecil sekarang udah 17 tahun yaa?? udahh besarr yaa skrg hahahha, ga kerasa yaa kita udah mau 3 tahun bareng and i still love u dan bakal gtu selamanya, makasii yaa sayangg udah bertahan sejauh ini, aku tau pasti ga gampang buat kamu tumbuh dengan kondisi yg sering bikin kamu cape, tpi kamuu hebatt sayang kamu keren, i'm so proud of u. aku berharap apapun yg kamu usahain dari dulu nanti nya membuahkan hasil yg sepadan, klo kamu cape jangan lupa istirahat yaa sayangg, maaffin aku klo aku masih sering bikin kamu cape dan sedih, pls sama aju teruss yaa?? i lovee uu gantengg happy birthday udah mau bikin ktp sm sim jadi rokok nya dikurangin yaa sayangg 🫂🤍</p>
     </div>
   </div>
 
@@ -101,8 +98,13 @@
       // 1. Tampilkan pesan rahasia
       document.getElementById('pesan-rahasia').style.display = 'block';
 
-      // 2. Putar musik latar
-    
+      // 2. Putar lagu
+      var musik = document.getElementById('lagu');
+      if (musik) {
+        musik.play().catch(function(error) {
+          console.log("Autoplay diblokir oleh browser:", error);
+        });
+      }
 
       // 3. Tembakkan efek konfeti warna-warni
       confetti({
@@ -110,12 +112,6 @@
         spread: 70,
         origin: { y: 0.6 }
       });
-
-      // 4. Tembakkan konfeti tambahan dari kiri dan kanan
-      setTimeout(() => {
-        confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0 } });
-        confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1 } });
-      }, 400);
     }
   </script>
 </body>
