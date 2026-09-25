@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>happy sweet seventeen sayangg 🎉</title>
+  
+  <!-- CDN Library Canvas Confetti untuk Animasi -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Background Gradient Nuansa Biru Pastel */
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+    h1 { 
+      color: #1e3c72; /* Warna Judul Biru Tua Maskulin */
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+    p { 
+      color: #4a5568; 
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    button {
+      background: #2a5298; /* Tombol Biru */
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 15px rgba(42, 82, 152, 0.3);
+    }
+    button:hover { 
+      transform: scale(1.05);
+      background: #1e3c72;
+    }
+    #pesan-rahasia {
+      display: none;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 2px dashed #e2e8f0;
+      animation: fadeIn 1s ease-in-out;
+    }
+    #pesan-rahasia p {
+      color: #2d3748;
+      font-size: 15px;
+      text-align: left;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🎉 Happy Birthday Sayangku 🎉</h1>
+    <p>happy birthday sayangku, happy sweet seventeen sayangg, i always pray the best for u, pls kedepannyaa harus tetep semangat yaa apapunn kondisi nya, i always here for u sayang</p>
+    
+    <!-- Elemen Audio Musik Latar -->
+    <audio id="lagu" loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung pemutar audio.
+    </audio>
+
+    <button onclick="bukaPesan()">Buka Pesan Spesial & Musik 🎁</button>
+    
+    <div id="pesan-rahasia">
+      <p>anak kecil sekarang udah 17 tahun yaa?? udahh besarr yaa skrg hahahha, gabkerasa yaa kita udah mau 3 tahun bareng and i still love u dan bakal gtu selamanya, makasii yaa sayangg udah bertahan sejauh ini, aku berharap apapun yg kamu usahain dari sekarang nanti nya membuahkan hasil yg sepadan, klo kamu cape jangan lupa istirahat yaa sayangg, maaffin aku klo aku masih sering bikin kamu cape dan sedih, pls sama aju teruss yaa?? i lovee uu gantengg happy birthday udah mau bikin ktp sm sim jadi rokok nya dikurangin 💙🎂</p>
+    </div>
+  </div>
+
+  <script>
+    function bukaPesan() {
+      // 1. Tampilkan pesan rahasia
+      document.getElementById('pesan-rahasia').style.display = 'block';
+
+      // 2. Putar musik latar
+      const musik = document.getElementById('lagu');
+      musik.play();
+
+      // 3. Tembakkan efek konfeti warna-warni
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      // 4. Tembakkan konfeti tambahan dari kiri dan kanan
+      setTimeout(() => {
+        confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1 } });
+      }, 400);
+    }
+  </script>
+</body>
+</html>
